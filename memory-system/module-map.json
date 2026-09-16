@@ -1,0 +1,105 @@
+{
+  "_comment": "注释：Python 版记忆系统模块映射，供文档与自动化检查使用。",
+  "modules": [
+    {
+      "name": "MemorySystem",
+      "path": "memory_system_py/system.py",
+      "role": "统一门面：旧 API + *_with_result 结构化结果方法"
+    },
+    {
+      "name": "OperationEvents",
+      "path": "memory_system_py/events.py",
+      "role": "OperationEvent / OperationResult / EventSink 可观测性层"
+    },
+    {
+      "name": "MemoryExtractor",
+      "path": "memory_system_py/extractor.py",
+      "role": "从会话轮次提取长期记忆候选"
+    },
+    {
+      "name": "MemoryStore",
+      "path": "memory_system_py/storage.py",
+      "role": "SQLite 持久化与 CRUD"
+    },
+    {
+      "name": "MemoryRetriever",
+      "path": "memory_system_py/retriever.py",
+      "role": "关键词重叠 + 分值排序检索"
+    },
+    {
+      "name": "MemoryCompactor",
+      "path": "memory_system_py/compact.py",
+      "role": "按分值与长度压缩记忆库规模"
+    },
+    {
+      "name": "TeamMemorySync",
+      "path": "memory_system_py/sync.py",
+      "role": "同步前敏感信息过滤"
+    },
+    {
+      "name": "MessyWorkspaceHarness",
+      "path": "harness_py/harness.py",
+      "role": "扫描混乱目录，先生成 Harness IR，再支持 dry-run 预览或写入记忆系统"
+    },
+    {
+      "name": "MemoryInputDocument",
+      "path": "harness_py/types.py",
+      "role": "Harness IR：把原始文件转换成 LLM 可读、可压缩、可追踪的中间表示"
+    },
+    {
+      "name": "HarnessValidator",
+      "path": "harness_py/validate.py",
+      "role": "命令行集成校验入口，支持 dry-run 与写入模式"
+    },
+    {
+      "name": "FormationTypes",
+      "path": "formation_py/types.py",
+      "role": "FormationArtifact / FormationResult / FormationTrace / EvidenceSpan"
+    },
+    {
+      "name": "FormationOperators",
+      "path": "formation_py/operators.py",
+      "role": "记忆形成算子协议、确定性基础算子与 OperatorRegistry"
+    },
+    {
+      "name": "FormationPipeline",
+      "path": "formation_py/pipeline.py",
+      "role": "按 FormationPlan 执行 operator，并汇总 FormationRun"
+    },
+    {
+      "name": "FormationProfilers",
+      "path": "formation_py/profile.py",
+      "role": "WorkspaceProfile 与 DocumentRoleProfile 的确定性 profiler"
+    },
+    {
+      "name": "RuleBasedMetaController",
+      "path": "formation_py/controller.py",
+      "role": "根据 intent/query/profile/roles/operator specs 生成 FormationPlan、workspace brief 与决策 trace"
+    },
+    {
+      "name": "LLMMetaController",
+      "path": "formation_py/llm_planner.py",
+      "role": "读取 WorkspaceBrief 与 formation meta-memory，调用 OpenAI-compatible LLM 生成可校验 FormationPlan"
+    },
+    {
+      "name": "LLMSmokeTest",
+      "path": "formation_py/llm_smoke.py",
+      "role": "手动真实 API smoke test，验证 LLM planner 连通性、JSON 解析与 FormationPlan 生成"
+    },
+    {
+      "name": "MetaFormationUpdate",
+      "path": "formation_py/meta_formation.py",
+      "role": "将 planning/execution trace 压缩为 FormationEpisode，并生成带 ID 的元记忆更新候选"
+    },
+    {
+      "name": "FormationMetaMemory",
+      "path": "formation_py/meta_memory.py",
+      "role": "加载、索引、去重并安全写回 Markdown 元记忆，支持 backup 与 update history"
+    },
+    {
+      "name": "MetaMemorySmokeTest",
+      "path": "formation_py/meta_memory_smoke.py",
+      "role": "手动 Version 6.1 smoke，执行 planning/pipeline/episode/candidate preview，可选 apply"
+    }
+  ]
+}

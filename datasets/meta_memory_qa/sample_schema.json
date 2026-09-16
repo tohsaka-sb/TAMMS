@@ -1,0 +1,30 @@
+{
+  "workspace_id": "toy_python_repo",
+  "workspace_path": "./examples/toy_python_repo",
+  "query": "这个项目怎么跑？",
+  "stage": "stage2_qa_dataset",
+  "baseline": {
+    "planner_mode": "rule_only"
+  },
+  "candidate": {
+    "planner_mode": "llm_preferred"
+  },
+  "qa_items": [
+    {
+      "qa_item_id": "qa_0001",
+      "question": "项目测试命令是什么？",
+      "gold_answer": "使用 pytest 运行测试。",
+      "gold_evidence_paths": [
+        "README.md",
+        "pytest.ini"
+      ],
+      "gold_evidence_spans": []
+    }
+  ],
+  "evaluation_signals": {
+    "qa_accuracy": null,
+    "evidence_recall": null,
+    "file_localization_hit": null,
+    "baseline_comparison": ""
+  }
+}
